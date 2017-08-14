@@ -1,7 +1,9 @@
-package com.ol.olcx;
+package com.ol.olcx.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.ol.olcx.R;
 
 public class CoordTActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.ol.olcx;
+package com.ol.olcx.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.ol.olcx.R;
 
 public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
 

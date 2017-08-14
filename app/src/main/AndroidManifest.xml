@@ -24,21 +24,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".SplashActivity"/>
+        <activity android:name=".Activities.MainActivity"/>
+        <activity android:name=".Activities.SplashActivity"/>
         <activity
-            android:name=".UserProfileActivity"
+            android:name=".Activities.UserProfileActivity"
             android:label="@string/title_activity_user_profile"
             android:theme="@style/TranslucentTheme"/>
-        <activity android:name=".BaseActivity"/>
-        <activity android:name=".CoordTActivity">
+        <activity android:name=".Activities.BaseActivity"/>
+        <activity android:name=".Activities.CoordTActivity">
         </activity>
-        <activity android:name=".MainMapActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+        <activity android:name=".Activities.MainMapActivity">
         </activity>
         <!-- 高德地图 -->
         <meta-data
@@ -48,7 +43,16 @@
 
         <service android:name="com.amap.api.location.APSService"/>
         <!-- 高德地图 -->
-        <activity android:name=".Map2Activity">
+        <activity android:name=".Activities.Map2Activity">
+        </activity>
+        <activity android:name=".Activities.DrawActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activities.MapFramentActivity">
 
         </activity>
     </application>

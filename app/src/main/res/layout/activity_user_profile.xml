@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/translucent3"
-    tools:context="com.ol.olcx.UserProfileActivity">
+    tools:context="com.ol.olcx.Activities.UserProfileActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

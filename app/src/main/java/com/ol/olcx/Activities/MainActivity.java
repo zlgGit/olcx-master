@@ -1,10 +1,11 @@
-package com.ol.olcx;
+package com.ol.olcx.Activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+
+import com.ol.olcx.R;
 
 public class MainActivity extends BaseActivity {
 

@@ -1,4 +1,4 @@
-package com.ol.olcx;
+package com.ol.olcx.Activities;
 
 import android.graphics.BitmapFactory;
 import android.os.PersistableBundle;
@@ -7,7 +7,6 @@ import android.os.Bundle;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.maps.AMap;
-import com.amap.api.maps.CameraUpdate;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.model.BitmapDescriptorFactory;
@@ -15,6 +14,7 @@ import com.amap.api.maps.model.CameraPosition;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
+import com.ol.olcx.R;
 
 public class Map2Activity extends AppCompatActivity {
 

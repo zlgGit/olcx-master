@@ -1,11 +1,10 @@
-package com.ol.olcx;
+package com.ol.olcx.Activities;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Point;
-import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.os.PersistableBundle;
@@ -19,8 +18,6 @@ import android.widget.LinearLayout;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.maps.AMap;
-import com.amap.api.maps.AMapOptions;
-import com.amap.api.maps.CameraUpdate;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.LocationSource;
 import com.amap.api.maps.MapView;
@@ -31,8 +28,8 @@ import com.amap.api.maps.model.CircleOptions;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
-
-import static com.autonavi.ae.pos.LocManager.init;
+import com.ol.olcx.R;
+import com.ol.olcx.SensorEventHelper;
 
 public class MainMapActivity extends AppCompatActivity {
 

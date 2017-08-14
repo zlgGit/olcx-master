@@ -5,7 +5,7 @@
               android:id="@+id/map_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ol.olcx.MainMapActivity">
+    tools:context="com.ol.olcx.Activities.MainMapActivity">
     <com.amap.api.maps.MapView
         android:id="@+id/mapview"
         android:layout_width="match_parent"
