@@ -50,7 +50,7 @@ import com.ol.olcx.adapters.MapAdapter;
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mMapView = (TextureMapView) getView().findViewById(R.id.mapview);
+//        mMapView = (TextureMapView) getView().findViewById(R.id.mapview);
 //        if (mMapView != null) {
 //            mMapView.onCreate(savedInstanceState);
 //            mMap = mMapView.getMap();
@@ -75,6 +75,7 @@ import com.ol.olcx.adapters.MapAdapter;
         super.onViewCreated(view, savedInstanceState);
 
         mTitleCenter = (FrameLayout) view.findViewById(R.id.base_title_center);
+
         mTabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
         mContainer = (FrameLayout) view.findViewById(R.id.container);
 //        mViewPager = (ViewPager) view.findViewById(R.id.viewPager);

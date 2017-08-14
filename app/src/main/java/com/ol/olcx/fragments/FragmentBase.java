@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -44,7 +45,12 @@ public abstract class FragmentBase extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         textureMapView = (TextureMapView) getView().findViewById(R.id.map);
-
+        textureMapView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
         if (textureMapView != null) {
             textureMapView.onCreate(savedInstanceState);
             aMap = textureMapView.getMap();

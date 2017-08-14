@@ -5,7 +5,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.ol.olcx.CcHttp.CcHttp;
 import com.ol.olcx.R;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
 
 public class MainActivity extends BaseActivity {
 
@@ -27,5 +31,8 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void imageLeftClick() {
         startActivity(new Intent(this,UserProfileActivity.class));
+        OkHttpClient client = new OkHttpClient();
+
+
     }
 }
