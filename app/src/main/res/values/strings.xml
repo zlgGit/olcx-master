@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">OLCX</string>
+    <string name="title_activity_user_profile">UserProfileActivity</string>
+</resources>
