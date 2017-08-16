@@ -17,5 +17,9 @@
         <item name="android:windowBackground">@color/translucent3</item>
         <item name="android:windowAnimationStyle">@null</item>
     </style>
+    <style name="WindowLeftComing">
+        <item name="android:windowEnterAnimation">@anim/leftin</item>
+        <item name="android:windowExitAnimation">@null</item>
+    </style>
 
 </resources>

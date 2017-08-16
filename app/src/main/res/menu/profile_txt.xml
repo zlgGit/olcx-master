@@ -2,21 +2,26 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 <group android:checkableBehavior="single"
     >
+
     <item
-        android:id="@+id/nav_camera"
-        android:icon="@drawable/ic_menu_camera"
-        android:title="Import" />
+        android:id="@+id/use_info"
+        android:icon="@drawable/me_listicon_01"
+        android:title="基本信息" />
     <item
-        android:id="@+id/nav_gallery"
-        android:icon="@drawable/ic_menu_gallery"
-        android:title="Gallery" />
+        android:id="@+id/violation_record"
+        android:icon="@drawable/me_listicon_02"
+        android:title="违章记录" />
     <item
-        android:id="@+id/nav_slideshow"
-        android:icon="@drawable/ic_menu_slideshow"
-        android:title="Slideshow" />
+        android:id="@+id/setting"
+        android:icon="@drawable/me_listicon_03"
+        android:title="设置" />
     <item
-        android:id="@+id/nav_manage"
-        android:icon="@drawable/ic_menu_manage"
-        android:title="Tools" />
+        android:id="@+id/me_listico_rank"
+        android:icon="@drawable/me_listicon_04"
+        android:title="帮助中心" />
+
+
+
+
 </group>
 </menu>

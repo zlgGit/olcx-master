@@ -20,12 +20,12 @@
         </include>
     </LinearLayout>
 
-    <FrameLayout
+    <com.ol.olcx.Views.ScrollViewPager
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/total_header">
-    </FrameLayout>
+    </com.ol.olcx.Views.ScrollViewPager>
 
 
 </RelativeLayout>

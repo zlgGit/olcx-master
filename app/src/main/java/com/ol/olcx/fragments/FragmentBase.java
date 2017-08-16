@@ -22,7 +22,7 @@ import java.lang.reflect.Field;
  */
 public abstract class FragmentBase extends Fragment {
     private TextureMapView textureMapView;
-    private AMap aMap;
+    public AMap aMap;
     abstract LatLng getTarget();
     abstract CameraPosition getCameraPosition() ;
     abstract void setCameraPosition(CameraPosition cameraPosition);
@@ -30,8 +30,12 @@ public abstract class FragmentBase extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        initData();
 
     }
+
+    protected abstract void initData();
 
     @Nullable
     @Override
@@ -68,7 +72,7 @@ public abstract class FragmentBase extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        textureMapView.onResume();
+//        textureMapView.onResume();
     }
 
     /**
@@ -77,7 +81,7 @@ public abstract class FragmentBase extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        textureMapView.onPause();
+//        textureMapView.onPause();
     }
 
     /**

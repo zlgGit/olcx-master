@@ -6,7 +6,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="@color/colorAccent"
+        android:background="@color/colorWhile"
         android:orientation="vertical">
 
         <ImageView
@@ -14,7 +14,8 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_centerVertical="true"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/btn_top_me"
+             />
 
         <TextView
             android:id="@+id/base_txt_left"
@@ -22,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/base_image_left"
-            android:text="测试" />
+            android:text="" />
 
         <FrameLayout
             android:id="@+id/base_title_center"
@@ -38,7 +39,7 @@
             android:layout_height="48dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/btn_top_list" />
 
         <TextView
             android:id="@+id/base_txt_right"
@@ -46,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/base_image_right"
-            android:text="测试" />
+            android:text="" />
 
     </RelativeLayout>
 </LinearLayout>

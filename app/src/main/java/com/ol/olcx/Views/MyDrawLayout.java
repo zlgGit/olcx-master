@@ -74,37 +74,43 @@ public class MyDrawLayout extends DrawerLayout {
         }
     };
 
-
-    @Override
-    public boolean onTouchEvent(MotionEvent ev) {
-
-        switch (ev.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                mDownFloat=ev.getX();
-                mTime=System.currentTimeMillis();
-
-            case MotionEvent.ACTION_MOVE:
-                float v = mDownFloat - ev.getX();
-                if (v<0)
-                    return false;
-            case MotionEvent.ACTION_UP:
-                long currentTimeMillis = System.currentTimeMillis();
-                if ((mTime-currentTimeMillis)>50) {
-                    return false;
-                }
-                float v1 = mDownFloat - ev.getX();
-                if (v1<0)
-                    return false;
-
-        }
-        return super.onTouchEvent(ev);
-    }
+//
+//    @Override
+//    public boolean onTouchEvent(MotionEvent ev) {
+//        return true;
+//
+////        switch (ev.getAction()) {
+////            case MotionEvent.ACTION_DOWN:
+////                mDownFloat=ev.getX();
+////                if (mDownFloat>=0 && mDownFloat<20)
+////                    return false;
+////             ;
+////                mTime=System.currentTimeMillis();
+////
+////            case MotionEvent.ACTION_MOVE:
+////                float v = mDownFloat - ev.getX();
+////                if (v<0)
+////                    return false;
+////            case MotionEvent.ACTION_UP:
+////                long currentTimeMillis = System.currentTimeMillis();
+////                if ((mTime-currentTimeMillis)>50) {
+////                    return false;
+////                }
+////                float v1 = mDownFloat - ev.getX();
+////                if (v1<0)
+////                    return false;
+////
+////        }
+////        return super.onTouchEvent(ev);
+//    }
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         float x = ev.getX();
-        if (x>0 && x<30)
+        if (x>=0 && x<25)
             return false;
         return super.dispatchTouchEvent(ev);
     }
+
+
 }

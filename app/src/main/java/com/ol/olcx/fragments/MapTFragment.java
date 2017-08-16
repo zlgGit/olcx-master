@@ -20,7 +20,11 @@ import com.amap.api.maps.TextureMapView;
 import com.amap.api.maps.model.CameraPosition;
 import com.amap.api.maps.model.LatLng;
 import com.ol.olcx.R;
+import com.ol.olcx.Views.ScrollViewPager;
 import com.ol.olcx.adapters.MapAdapter;
+import com.ol.olcx.adapters.MapPagerAdapter;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -32,7 +36,8 @@ import com.ol.olcx.adapters.MapAdapter;
     private FrameLayout mTitleCenter;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
-    private FrameLayout mContainer;
+    private ScrollViewPager mContainer;
+
 
     public static MapTFragment newInstance(Bundle args) {
 
@@ -76,15 +81,26 @@ import com.ol.olcx.adapters.MapAdapter;
 
         mTitleCenter = (FrameLayout) view.findViewById(R.id.base_title_center);
 
+
         mTabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
-        mContainer = (FrameLayout) view.findViewById(R.id.container);
+        mContainer = (ScrollViewPager) view.findViewById(R.id.container);
+
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        OrderCarFragment orderCarFragment = new OrderCarFragment();
+        PriviateCarFragment priviateCarFragment = new PriviateCarFragment();
+
+        fragments.add(orderCarFragment);
+        fragments.add(priviateCarFragment);
+        FragmentManager childFragmentManager = getChildFragmentManager();
+
+        mContainer.setAdapter(new MapPagerAdapter(childFragmentManager, fragments));
 //        mViewPager = (ViewPager) view.findViewById(R.id.viewPager);
 //
 //
 //        MapAdapter mapAdapter=new MapAdapter(getActivity());
 //        mViewPager.setAdapter(mapAdapter);
         mTabLayout.addTab(mTabLayout.newTab().setText("网约车"));
-        mTabLayout.addTab(mTabLayout.newTab().setText("专车"));
+        mTabLayout.addTab(mTabLayout.newTab().setText("分时租赁"));
         mTabLayout.addOnTabSelectedListener(this);
     }
 
@@ -110,15 +126,15 @@ import com.ol.olcx.adapters.MapAdapter;
 
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
-//        if (tab.getText().equals("网约车")) {
-//            mViewPager.setCurrentItem(0);
-//        }else {
-//            mViewPager.setCurrentItem(1);
-//        }
+        if (tab.getText().equals("网约车")) {
+            mContainer.setCurrentItem(0);
+        }else {
+            mContainer.setCurrentItem(1,true);
+        }
 
-        FragmentManager childFragmentManager = getChildFragmentManager();
-        MapTFragmentCo mTC=new MapTFragmentCo();
-        childFragmentManager.beginTransaction().add(R.id.container,mTC,"mTc").commit();
+//        FragmentManager childFragmentManager = getChildFragmentManager();
+//        MapTFragmentCo mTC=new MapTFragmentCo();
+//        childFragmentManager.beginTransaction().add(R.id.container,mTC,"mTc").commit();
     }
 
     @Override
