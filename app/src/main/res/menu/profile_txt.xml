@@ -1,27 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-<group android:checkableBehavior="single"
-    >
-
-    <item
-        android:id="@+id/use_info"
-        android:icon="@drawable/me_listicon_01"
-        android:title="基本信息" />
-    <item
-        android:id="@+id/violation_record"
-        android:icon="@drawable/me_listicon_02"
-        android:title="违章记录" />
-    <item
-        android:id="@+id/setting"
-        android:icon="@drawable/me_listicon_03"
-        android:title="设置" />
-    <item
-        android:id="@+id/me_listico_rank"
-        android:icon="@drawable/me_listicon_04"
-        android:title="帮助中心" />
-
-
-
-
-</group>
+    <group android:checkableBehavior="single"
+        >
+        <item
+            android:id="@+id/wallet"
+            android:icon="@drawable/wallet"
+            android:title="钱包"/>
+        <item
+            android:id="@+id/order_info"
+            android:icon="@drawable/order_info"
+            android:title="订单"/>
+        <item
+            android:id="@+id/user_score"
+            android:icon="@drawable/user_score"
+            android:title="积分"/>
+        <item
+            android:id="@+id/use_info"
+            android:icon="@drawable/me_listicon_01"
+            android:title="基本信息"/>
+        <item
+            android:id="@+id/violation_record"
+            android:icon="@drawable/me_listicon_02"
+            android:title="违章记录"/>
+        <item
+            android:id="@+id/setting"
+            android:icon="@drawable/me_listicon_03"
+            android:title="设置"/>
+        <item
+            android:id="@+id/me_listico_rank"
+            android:icon="@drawable/me_listicon_04"
+            android:title="帮助中心"/>
+        <item
+            android:id="@+id/me_feedback"
+            android:icon="@drawable/me_listicon_04"
+            android:title="意见反馈"/>
+    </group>
 </menu>
