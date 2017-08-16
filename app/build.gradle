@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'ol'
             keyPassword '123456'
-            storeFile file('G:/olcx-master/olcx-master/ol.jks')
+            storeFile file('/workplace/olcx-master/ol.jks')
             storePassword '123456'
         }
     }
@@ -57,6 +57,8 @@ dependencies {
     compile 'com.amap.api:location:latest.integration'
     compile 'com.amap.api:search:latest.integration'
     compile 'com.amap.api:navi-3dmap:latest.integration'
+
+
     compile 'com.android.support:support-v4:25.3.1'
     testCompile 'junit:junit:4.12'
     compile 'com.squareup.okhttp3:okhttp:3.8.1'

@@ -1,30 +1,25 @@
 package com.ol.olcx.Activities;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-;
-import com.ol.olcx.CcHttp.CcCallBack;
-import com.ol.olcx.HttpInterfaces.CarStationHttp;
-import com.ol.olcx.HttpInterfaces.LoginHttp;
-import com.ol.olcx.R;
-import com.ol.olcx.beans.BaseBean;
-import com.ol.olcx.beans.CarStationBean;
-import com.ol.olcx.beans.StationInfoBean;
-import com.ol.olcx.fragments.MapTFragment;
+import android.widget.Toast;
 
-import java.util.List;
+import com.ol.olcx.R;
+
+import com.ol.olcx.fragments.MapTFragment;
 
 public class DrawActivity extends AppCompatActivity {
 
@@ -34,14 +29,51 @@ public class DrawActivity extends AppCompatActivity {
     private ImageView mIv_l;
 
     private FrameLayout mTitleCenter;
+    public static final String [] permissions= {Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION};
+    public static final int LOCATION_RQE=100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_draw);
         initView();
+        permissin();
 
     }
+
+    private void permissin() {
+
+        if (checkSelfPermissions(this,permissions)) {
+
+        }else {
+            ActivityCompat.requestPermissions(this,permissions,LOCATION_RQE);
+
+        }
+    }
+
+    private boolean checkSelfPermissions(Activity activity, String[] permissions) {
+
+        for (int i = 0; i < permissions.length; i++) {
+
+            if (ContextCompat.checkSelfPermission(activity,permissions[i])== PackageManager.PERMISSION_DENIED) {
+                return false;
+            }
+        }
+
+
+        return true;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (checkSelfPermissions(this,permissions)) {
+            Toast.makeText(this,"permssion is ok",Toast.LENGTH_LONG).show();
+        }
+
+    }
+
     private void initView() {
 
         mIv_l = (ImageView) findViewById(R.id.base_image_left);
