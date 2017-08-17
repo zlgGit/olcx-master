@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'ol'
             keyPassword '123456'
-            storeFile file('/workplace/olcx-master/ol.jks')
+            storeFile file('/ol.jks')
             storePassword '123456'
         }
     }
