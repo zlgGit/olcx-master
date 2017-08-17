@@ -11,10 +11,12 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ol.olcx.R;
@@ -78,6 +80,12 @@ public class DrawActivity extends AppCompatActivity {
 
         mIv_l = (ImageView) findViewById(R.id.base_image_left);
         mTitleCenter = (FrameLayout) findViewById(R.id.base_title_center);
+        View inflate = LayoutInflater.from(this).inflate(R.layout.title_center, null);
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,FrameLayout.LayoutParams.WRAP_CONTENT);
+        params.gravity=Gravity.CENTER;
+        inflate.setLayoutParams(params);
+        TextView city = (TextView) inflate.findViewById(R.id.city);
+        mTitleCenter.addView(inflate);
 
 
 
@@ -97,7 +105,5 @@ public class DrawActivity extends AppCompatActivity {
         FragmentTransaction transaction = mFragmentManager.beginTransaction();
         transaction.add(R.id.container,mMapFragment,"mMapFragment");
         transaction.commitAllowingStateLoss();
-//        MapTFragmentCo mTC=new MapTFragmentCo();
-//        getSupportFragmentManager().beginTransaction().add(R.id.container,mTC,"mTc");
     }
 }

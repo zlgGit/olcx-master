@@ -6,4 +6,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="profil_name">长城汽车</string>
     <string name="profile_vip">长城汽车股份有限公司租赁部门</string>
+    <string name="default_baoding">保定</string>
+    <string name="location_start_position">当前位置</string>
+    <string name="station_choice_car">选车</string>
+    <string name="station_to_where">你要去那儿</string>
+    <string name="station_replace">换个站点</string>
 </resources>

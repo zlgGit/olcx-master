@@ -2,8 +2,7 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="com.ol.olcx.fragments.MapFragment"
-              android:orientation="vertical"
+                android:orientation="vertical"
     >
 
 
@@ -11,11 +10,10 @@
         android:id="@+id/total_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         >
-
         <include
-            layout="@layout/title_center"
+            layout="@layout/navigation_horizontal_bar"
             >
         </include>
     </LinearLayout>
@@ -26,6 +24,5 @@
         android:layout_height="match_parent"
         android:layout_below="@id/total_header">
     </com.ol.olcx.Views.ScrollViewPager>
-
 
 </RelativeLayout>

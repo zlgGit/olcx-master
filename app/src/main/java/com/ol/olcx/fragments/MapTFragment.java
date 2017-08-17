@@ -1,7 +1,6 @@
 package com.ol.olcx.fragments;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -11,17 +10,11 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
 import com.amap.api.maps.AMap;
-import com.amap.api.maps.CameraUpdateFactory;
-import com.amap.api.maps.MapView;
 import com.amap.api.maps.TextureMapView;
-import com.amap.api.maps.model.CameraPosition;
-import com.amap.api.maps.model.LatLng;
 import com.ol.olcx.R;
 import com.ol.olcx.Views.ScrollViewPager;
-import com.ol.olcx.adapters.MapAdapter;
 import com.ol.olcx.adapters.MapPagerAdapter;
 
 import java.util.ArrayList;
@@ -33,7 +26,6 @@ import java.util.ArrayList;
 
     private TextureMapView mMapView;
     private AMap mMap;
-    private FrameLayout mTitleCenter;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private ScrollViewPager mContainer;
@@ -55,16 +47,8 @@ import java.util.ArrayList;
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-//        mMapView = (TextureMapView) getView().findViewById(R.id.mapview);
-//        if (mMapView != null) {
-//            mMapView.onCreate(savedInstanceState);
-//            mMap = mMapView.getMap();
-//            if (getCameraPosition() == null) {
-//                aMap.moveCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition(getTarget(), 10, 0, 0)));
-//            }else {
-//                aMap.moveCamera(CameraUpdateFactory.newCameraPosition(getCameraPosition()));
-//            }
-//        }
+
+
     }
 
     @Override
@@ -79,17 +63,16 @@ import java.util.ArrayList;
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mTitleCenter = (FrameLayout) view.findViewById(R.id.base_title_center);
 
 
         mTabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
         mContainer = (ScrollViewPager) view.findViewById(R.id.container);
 
         ArrayList<Fragment> fragments = new ArrayList<>();
-        OrderCarFragment orderCarFragment = new OrderCarFragment();
+        RentCarFragment rentCarFragment = new RentCarFragment();
         PriviateCarFragment priviateCarFragment = new PriviateCarFragment();
 
-        fragments.add(orderCarFragment);
+        fragments.add(rentCarFragment);
         fragments.add(priviateCarFragment);
         FragmentManager childFragmentManager = getChildFragmentManager();
 
@@ -131,10 +114,6 @@ import java.util.ArrayList;
         }else {
             mContainer.setCurrentItem(1,true);
         }
-
-//        FragmentManager childFragmentManager = getChildFragmentManager();
-//        MapTFragmentCo mTC=new MapTFragmentCo();
-//        childFragmentManager.beginTransaction().add(R.id.container,mTC,"mTc").commit();
     }
 
     @Override

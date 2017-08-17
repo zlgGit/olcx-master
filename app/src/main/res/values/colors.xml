@@ -7,4 +7,9 @@
     <color name="translucent">#0000</color>
     <color name="gray">#5000</color>
     <color name="colorWhile">#ffff</color>
+    <color name="colorSelect">#f98b16</color>
+    <color name="colorStartPoint">#09cc11</color>
+    <color name="colorEndPoint">#de311e</color>
+    <color name="colorGray9">#494949</color>
+    <color name="translucent1">#1000</color>
 </resources>

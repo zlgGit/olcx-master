@@ -120,9 +120,10 @@ class CcGetJson<T> extends CcResponse<T> implements ParamsTask<CcGetJson<T>>{
         Set<String> keySet = params.keySet();
         Iterator<String> iterator = keySet.iterator();
 
+        String requestBaseUrl = mCcRequest.url+".do";
         if (iterator.hasNext()) {
             if (urlBuilder==null)
-            {  urlBuilder=new StringBuilder(mCcRequest.url);
+            {  urlBuilder=new StringBuilder(requestBaseUrl);
                 String key = iterator.next();
                 urlBuilder.append("?").append(key).append("=").append(params.get(key));
             }else {
@@ -130,7 +131,7 @@ class CcGetJson<T> extends CcResponse<T> implements ParamsTask<CcGetJson<T>>{
                 urlBuilder.append("&").append(key).append("=").append(params.get(key));
             }
         }else {
-            urlBuilder=new StringBuilder(mCcRequest.url);
+            urlBuilder=new StringBuilder(requestBaseUrl);
         }
         this.url=urlBuilder.toString();
         Log.i("---",this.url);

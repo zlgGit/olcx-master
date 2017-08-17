@@ -57,8 +57,6 @@ dependencies {
     compile 'com.amap.api:location:latest.integration'
     compile 'com.amap.api:search:latest.integration'
     compile 'com.amap.api:navi-3dmap:latest.integration'
-
-
     compile 'com.android.support:support-v4:25.3.1'
     testCompile 'junit:junit:4.12'
     compile 'com.squareup.okhttp3:okhttp:3.8.1'
@@ -67,4 +65,5 @@ dependencies {
     compile 'com.mcxiaoke.volley:library-aar:1.0.1'
     compile 'com.google.code.gson:gson:2.8.1'
     compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.jakewharton:butterknife:8.8.1'
 }
