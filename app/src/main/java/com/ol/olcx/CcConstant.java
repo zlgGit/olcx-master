@@ -5,8 +5,17 @@ package com.ol.olcx;
  */
 
 public class CcConstant {
-    public static final String BASE_URL="http://10.51.9.42:8080";
+    public static final String BASE_URL="http://10.51.9.42/CarDemo";
+
+    public static final String LATITUDE="latitude";
+    public static final String LONGITUDE="longitude";
+    public static final String STATIONID="stationid";
+
+
 
     public static final int COLOR_SELECT=1;
     public static final int COLOR_USSELECT=2;
+
+
+    public static final int JUMP_STATION_SELECTED_CAR=1001;
 }

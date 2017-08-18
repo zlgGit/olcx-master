@@ -109,7 +109,7 @@
                 />
 
             <TextView
-                android:id="@+id/station_repalce"
+                android:id="@+id/txt_end_station_repalce"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|center"

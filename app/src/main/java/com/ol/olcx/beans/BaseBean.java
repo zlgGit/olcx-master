@@ -7,7 +7,5 @@ import java.io.Serializable;
  */
 
 public class BaseBean implements Serializable {
-    public String msg;
-    public int code;
 
 }

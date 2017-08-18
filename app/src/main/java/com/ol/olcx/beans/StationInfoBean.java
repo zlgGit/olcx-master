@@ -7,21 +7,33 @@ import java.io.Serializable;
  */
 
 public class StationInfoBean implements Serializable {
-    private int id;
-    private Object imageurl;
-    private String name;
-    private int discount;
-    private int reduction;
-    private int opentime;
-    private int closetime;
-    private String type;
-    private String longitude;
-    private String latitude;
-    private String address;
-    private String addressDescription;
-    private String parkings;
-    private String chargers;
-    private String cityCode;
+    public int id;
+    public String imageurl;
+    public String name;
+    public double discount;
+    public int reduction;
+    public int opentime;
+    public int closetime;
+    public String type;
+    public String longitude;
+    public String latitude;
+    public String address;
+    public String addressDescription;
+    public String parkings;
+    public String chargers;
+    public String cityCode;
+
+    public double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+
+    public void setImageurl(String imageurl) {
+        this.imageurl = imageurl;
+    }
 
     public int getId() {
         return id;
@@ -35,9 +47,7 @@ public class StationInfoBean implements Serializable {
         return imageurl;
     }
 
-    public void setImageurl(Object imageurl) {
-        this.imageurl = imageurl;
-    }
+
 
     public String getName() {
         return name;
@@ -47,9 +57,6 @@ public class StationInfoBean implements Serializable {
         this.name = name;
     }
 
-    public int getDiscount() {
-        return discount;
-    }
 
     public void setDiscount(int discount) {
         this.discount = discount;

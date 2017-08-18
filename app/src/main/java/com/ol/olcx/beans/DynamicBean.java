@@ -4,7 +4,7 @@ package com.ol.olcx.beans;
  * Created by gw00070468 on 2017/8/17.
  */
 
-public class DynamicBean {
+public class DynamicBean extends BaseBean{
 
     /**
      * id : 1
@@ -15,12 +15,12 @@ public class DynamicBean {
      * chargersTotal : 100
      */
 
-    private int id;
-    private int carTotal;
-    private int parkings;
-    private int parkingsTotal;
-    private int chargers;
-    private int chargersTotal;
+    public int id;
+    public int carTotal;
+    public int parkings;
+    public int parkingsTotal;
+    public int chargers;
+    public int chargersTotal;
 
     public int getId() {
         return id;

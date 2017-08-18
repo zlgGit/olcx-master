@@ -3,20 +3,15 @@ package com.ol.olcx.CcHttp;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.ol.olcx.beans.BaseBean;
+import com.ol.olcx.CcLog;
 
 import java.io.IOException;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.lang.reflect.TypeVariable;
+
 import java.util.Iterator;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
@@ -28,7 +23,6 @@ import okhttp3.Headers;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import okhttp3.ResponseBody;
 
 /**
  * Created by GW00070468 on 2017/8/15.
@@ -40,7 +34,7 @@ class CcGetJson<T> extends CcResponse<T> implements ParamsTask<CcGetJson<T>>{
     private Request mRequest;
     private CcRequest mCcRequest;
     private Headers mHeaders;
-    private OkHttpClient mOkHttpClient=new OkHttpClient();
+    private OkHttpClient mOkHttpClient=null;
     private CcCallBack mCcCallBack;
     private Class<T> cls;
 
@@ -51,6 +45,10 @@ class CcGetJson<T> extends CcResponse<T> implements ParamsTask<CcGetJson<T>>{
 
     public CcGetJson() {
 
+        if (mOkHttpClient==null)
+        {
+            mOkHttpClient=new OkHttpClient();
+        }
     }
 
 
@@ -66,7 +64,7 @@ class CcGetJson<T> extends CcResponse<T> implements ParamsTask<CcGetJson<T>>{
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String string = response.body().string();
-                Log.i("---CcGetJson",string);
+                CcLog.i("---CcGetJson",string);
                 Observable.just(string)
                         .subscribeOn(Schedulers.io())
                         .map(new Function<String,Object>() {
@@ -121,7 +119,10 @@ class CcGetJson<T> extends CcResponse<T> implements ParamsTask<CcGetJson<T>>{
         Iterator<String> iterator = keySet.iterator();
 
         String requestBaseUrl = mCcRequest.url+".do";
-        if (iterator.hasNext()) {
+        if (!iterator.hasNext()){
+            urlBuilder=new StringBuilder(requestBaseUrl);
+        }
+        while (iterator.hasNext()) {
             if (urlBuilder==null)
             {  urlBuilder=new StringBuilder(requestBaseUrl);
                 String key = iterator.next();
@@ -130,9 +131,9 @@ class CcGetJson<T> extends CcResponse<T> implements ParamsTask<CcGetJson<T>>{
                 String key = iterator.next();
                 urlBuilder.append("&").append(key).append("=").append(params.get(key));
             }
-        }else {
-            urlBuilder=new StringBuilder(requestBaseUrl);
         }
+
+
         this.url=urlBuilder.toString();
         Log.i("---",this.url);
         // header拼接

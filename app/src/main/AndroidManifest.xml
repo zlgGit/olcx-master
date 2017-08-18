@@ -53,11 +53,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.MapFramentActivity">
-
         </activity>
-        <activity android:name=".Activities.DrawActivity2"
-            android:theme="@style/TranslucentTheme"
-            >
+        <activity
+            android:name=".Activities.DrawActivity2"
+            android:theme="@style/TranslucentTheme">
+        </activity>
+        <activity android:name=".Activities.ChoiceCarActivity">
         </activity>
     </application>
 

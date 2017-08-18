@@ -2,7 +2,7 @@ package com.ol.olcx.HttpInterfaces;
 
 import com.ol.olcx.CcConstant;
 import com.ol.olcx.CcHttp.CcHttp;
-import com.ol.olcx.beans.StationResponse;
+import com.ol.olcx.Respnses.StationResponse;
 
 
 /**

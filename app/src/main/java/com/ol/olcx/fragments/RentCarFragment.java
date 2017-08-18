@@ -1,8 +1,8 @@
 package com.ol.olcx.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -24,17 +24,15 @@ import com.amap.api.maps.model.CameraPosition;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
+import com.ol.olcx.Activities.ChoiceCarActivity;
 import com.ol.olcx.CcConstant;
 import com.ol.olcx.CcHttp.CcCallBack;
-import com.ol.olcx.CcLog;
-import com.ol.olcx.HttpInterfaces.CarStationHttp;
 import com.ol.olcx.HttpInterfaces.CityStationHttp;
 import com.ol.olcx.R;
-import com.ol.olcx.beans.CarStationBean;
+import com.ol.olcx.Respnses.StationResponse;
 import com.ol.olcx.beans.DynamicBean;
 import com.ol.olcx.beans.StationBean;
 import com.ol.olcx.beans.StationInfoBean;
-import com.ol.olcx.beans.StationResponse;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -42,6 +40,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 
@@ -62,15 +61,15 @@ public class RentCarFragment extends FragmentBase {
     LinearLayout mStartLayout;
     @BindView(R.id.station_end_location)
     TextView mStationEndLocation;
-    @BindView(R.id.station_repalce)
-    TextView mStationRepalce;
+    @BindView(R.id.txt_end_station_repalce)
+    TextView mTxtStationRepalce;
     @BindView(R.id.end_layout)
     LinearLayout mEndLayout;
     @BindView(R.id.rent_bottom)
     LinearLayout mRentBottom;
     Unbinder unbinder;
     private AMap mMap;
-    private static String Tag=RentCarFragment.class.getSimpleName();
+    private static String Tag = RentCarFragment.class.getSimpleName();
 
     public static RentCarFragment newInstance() {
 
@@ -92,8 +91,9 @@ public class RentCarFragment extends FragmentBase {
 
     public static final LatLng BAODING = new LatLng(38.816166, 115.452179);
     protected static CameraPosition cameraPosition;
-    private List<Marker> mMarkerList;
-    private Marker mCurrentMarker;
+    private List<Marker> mMarkerList;//所有marker
+    private Marker mCurrentMarker;//当前marker
+    private List<StationBean> mData;//所有maker的数据
 
     public LatLng getTarget() {
         return BAODING;
@@ -111,6 +111,9 @@ public class RentCarFragment extends FragmentBase {
         mMarkerList = new ArrayList<>();
         CityStationHttp cityStationHttp = new CityStationHttp();
         cityStationHttp.getCityCarStaion("1500175").exucute(new CcCallBack<StationResponse>() {
+
+
+
             @Override
             public void onFailure(String error) {
 
@@ -118,22 +121,25 @@ public class RentCarFragment extends FragmentBase {
 
             @Override
             public void onSuccess(StationResponse stationResponse) {
-                List<StationBean> data = stationResponse.data;
+                //数据回来先清理数据
+                mMap.clear();
+                mData.clear();
+                mData = stationResponse.data;
 
-                for (StationBean bean:data
-                     ) {
+                for (int i = 0; i < mData.size(); i++) {
+
+                    StationBean bean = mData.get(i);
                     StationInfoBean basic = bean.basic;
                     DynamicBean dynamic = bean.dynamic;
 
                     MarkerOptions markerOptions = new MarkerOptions();
                     //这里很简单就加了一个TextView，根据需求可以加载复杂的View
-                   BitmapDescriptor markerIcon = BitmapDescriptorFactory.fromView(getView(dynamic.getCarTotal()+"",CcConstant.COLOR_USSELECT));
+                    BitmapDescriptor markerIcon = BitmapDescriptorFactory.fromView(getView(dynamic.getCarTotal() + "", CcConstant.COLOR_USSELECT));
                     double latitude = Double.parseDouble(basic.getLatitude());
                     double longitude = Double.parseDouble(basic.getLongitude());
                     LatLng latLng = new LatLng(latitude, longitude);
-                    markerOptions.position(latLng).icon(markerIcon);
+                    markerOptions.position(latLng).icon(markerIcon).snippet(i + "");
                     mMap.addMarker(markerOptions);
-
                 }
 
             }
@@ -141,7 +147,7 @@ public class RentCarFragment extends FragmentBase {
     }
 
 
-    private View getView(String count,int color) {
+    private View getView(String count, int color) {
         View view = View.inflate(getActivity(), R.layout.custom_view, null);
         TextView textView = ((TextView) view.findViewById(R.id.title));
         switch (color) {
@@ -164,21 +170,32 @@ public class RentCarFragment extends FragmentBase {
         @Override
         public boolean onMarkerClick(Marker marker) {
 
-            if (marker.equals(mCurrentMarker))
+            if (marker.equals(mCurrentMarker))//点击同一个marker
                 return true;
 
-            marker.getOptions().getIcon().recycle();
 
 
-            BitmapDescriptor bitmapDescriptor = BitmapDescriptorFactory.fromView(getView("3", CcConstant.COLOR_SELECT));
-            marker.setIcon(bitmapDescriptor);
-
-            if (mCurrentMarker!=null)
+            MarkerOptions options = marker.getOptions();
+            options.getIcon().recycle();
+            //点击站点给当前位置输入值
+            String snippet = options.getSnippet();
+            StationBean stationBean = mData.get(Integer.parseInt(snippet));
+            if (stationBean!=null)
             {
-                mCurrentMarker.setIcon(BitmapDescriptorFactory.fromView(getView("3", CcConstant.COLOR_USSELECT)));
+
+                mStationStartLocation.setText(stationBean.basic.getName());
+                mStationStartLocation.setTag(stationBean);
             }
 
-            mCurrentMarker=marker;
+            //点击图标改变，点击的maker和当前的marker背景交换
+            BitmapDescriptor bitmapDescriptor = BitmapDescriptorFactory.fromView(getView(options.getSnippet(), CcConstant.COLOR_SELECT));
+            marker.setIcon(bitmapDescriptor);
+
+            if (mCurrentMarker != null) {
+                mCurrentMarker.setIcon(BitmapDescriptorFactory.fromView(getView(mCurrentMarker.getSnippet(), CcConstant.COLOR_USSELECT)));
+            }
+
+            mCurrentMarker = marker;
             return true;
         }
     };
@@ -194,6 +211,7 @@ public class RentCarFragment extends FragmentBase {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_rentcar, container, false);
+
         unbinder = ButterKnife.bind(this, view);
 
         return view;
@@ -204,13 +222,12 @@ public class RentCarFragment extends FragmentBase {
         super.onViewCreated(view, savedInstanceState);
 
 
-
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        mData=new ArrayList<>();
         textureMapView = (TextureMapView) getView().findViewById(R.id.rent_map);
         textureMapView.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -221,7 +238,7 @@ public class RentCarFragment extends FragmentBase {
 
         if (textureMapView != null) {
             // 绑定 Marker 被点击事件
-            mMap= textureMapView.getMap();
+            mMap = textureMapView.getMap();
 
             mMap.setOnMarkerClickListener(markerClickListener);
             UiSettings uiSettings = mMap.getUiSettings();
@@ -298,5 +315,42 @@ public class RentCarFragment extends FragmentBase {
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    @OnClick({R.id.location_bt, R.id.station_start_location, R.id.station_choice_car, R.id.station_end_location, R.id.txt_end_station_repalce})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+
+            case R.id.location_bt:
+                break;
+
+            case R.id.station_start_location:
+                break;
+
+            case R.id.station_choice_car:
+                Intent intent = new Intent(getActivity(), ChoiceCarActivity.class);
+                StationBean stationBean = (StationBean) mStationStartLocation.getTag();
+                int id = stationBean.basic.getId();
+                intent.putExtra(CcConstant.STATIONID,id);
+                startActivityForResult(intent,CcConstant.JUMP_STATION_SELECTED_CAR);
+                break;
+
+            case R.id.station_end_location:
+                break;
+
+            case R.id.txt_end_station_repalce:
+
+                break;
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode==CcConstant.JUMP_STATION_SELECTED_CAR)
+        {
+
+        }
     }
 }
