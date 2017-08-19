@@ -24,6 +24,11 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
+    protected String initTitle() {
+        return null;
+    }
+
+    @Override
     protected View setBaseContentView() {
         return LayoutInflater.from(this).inflate(R.layout.activity_main,null);
     }

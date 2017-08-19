@@ -2,14 +2,14 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@android:id/background"
-        android:drawable="@color/gray"
+        android:drawable="@color/gray2"
         />
 
     <!--  设置进度条颜色图像资源  -->
     <item
         android:id="@android:id/progress"
-        android:gravity="center_vertical"
         android:drawable="@drawable/bg_img_progerssbar"
-
+        android:top="2dp"
+        android:bottom="2dp"
         />
 </layer-list>

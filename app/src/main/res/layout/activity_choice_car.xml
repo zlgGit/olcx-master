@@ -6,9 +6,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.ol.olcx.Activities.ChoiceCarActivity">
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/car_recyclerview"
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/smartResfresh"
+        app:srlAccentColor="@android:color/white"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent"
+        app:srlHeaderHeight="100dp"
+        >
+        <com.scwang.smartrefresh.header.CircleHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/car_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v7.widget.RecyclerView>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
 </LinearLayout>

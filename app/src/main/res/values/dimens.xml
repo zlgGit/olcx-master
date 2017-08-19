@@ -2,5 +2,15 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="ts_16">16sp</dimen>
     <dimen name="ts_14">14sp</dimen>
+    <dimen name="ts_13">13sp</dimen>
+    <dimen name="ts_12">12sp</dimen>
+    <dimen name="ts_11">11sp</dimen>
     <dimen name="ts_10">10sp</dimen>
+    <dimen name="ts_9">9sp</dimen>
+    <dimen name="ts_8">8sp</dimen>
+    <dimen name="ts_7">7sp</dimen>
+    <dimen name="ts_6">6sp</dimen>
+    <dimen name="ts_5">5sp</dimen>
+    <dimen name="ts_4">4sp</dimen>
+    <dimen name="ts_2">2sp</dimen>
 </resources>

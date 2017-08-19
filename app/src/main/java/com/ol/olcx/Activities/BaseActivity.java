@@ -17,6 +17,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     private ImageView mImgRight;
     private TextView mTxtRight;
     private FrameLayout mContainer;
+    private TextView mTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +35,17 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         mImgRight = (ImageView) findViewById(R.id.base_image_right);
         mTxtRight = (TextView) findViewById(R.id.base_txt_right);
         mContainer = (FrameLayout) findViewById(R.id.base_container);
+        mTitle = (TextView) findViewById(R.id.title);
         mImgLeft.setOnClickListener(this);
         mTxtLeft.setOnClickListener(this);
         mImgRight.setOnClickListener(this);
         mImgLeft.setOnClickListener(this);
+        mTitle.setText(initTitle());
     }
 
     protected abstract void initViews();
+
+    protected abstract String initTitle();
 
     protected abstract View setBaseContentView();
 
@@ -82,13 +87,13 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         }
     }
 
-    private void txtRightClick() {
+    protected void txtRightClick() {
     }
 
-    private void imageRightClick() {
+    protected void imageRightClick() {
     }
 
-    private void txtLeftClick() {
+    protected void txtLeftClick() {
     }
 
     protected void imageLeftClick() {

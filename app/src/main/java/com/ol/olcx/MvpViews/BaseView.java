@@ -5,6 +5,8 @@ package com.ol.olcx.MvpViews;
  */
 
 public interface BaseView {
-    void showLoading();
-    void dismissLoading();
+    void onFailed(String error);
+    void onSuccess();
+    void preLoading();
+
 }

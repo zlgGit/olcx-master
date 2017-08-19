@@ -23,18 +23,18 @@ public class ChoiceCarPresenter {
     }
 
     public void getStationCar(int stationid) {
-        mChoiceCarView.showLoading();
+        mChoiceCarView.preLoading();
         ChoiceCarHttp choiceCarHttp = new ChoiceCarHttp();
         choiceCarHttp.getStationCar(stationid).exucute(new CcCallBack<CarResponse>() {
             @Override
             public void onFailure(String error) {
-                mChoiceCarView.dismissLoading();
+                mChoiceCarView.onFailed(error);
             }
 
             @Override
             public void onSuccess(CarResponse carResponse) {
 
-                mChoiceCarView.dismissLoading();
+                mChoiceCarView.onSuccess();
                 if (carResponse.code==0) {
                     List<CarBean> data = carResponse.data;
                     mChoiceCarView.setRecyclerViewDate(data);

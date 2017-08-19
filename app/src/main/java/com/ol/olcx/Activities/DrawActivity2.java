@@ -1,5 +1,6 @@
 package com.ol.olcx.Activities;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import com.ol.olcx.CcLog;
 import com.ol.olcx.R;
 
 ;import butterknife.BindView;
@@ -20,6 +22,8 @@ import butterknife.ButterKnife;
 public class DrawActivity2 extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
+
+    private  final String TAG = DrawActivity2.this.getClass().getSimpleName();
     @BindView(R.id.navigation)
     NavigationView mNavigation;
     private ImageView mIv_l;
@@ -82,7 +86,7 @@ public class DrawActivity2 extends AppCompatActivity implements NavigationView.O
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
+        CcLog.i(TAG,"item"+item.getItemId());
         switch (item.getItemId())
         {
             case R.id.wallet:
