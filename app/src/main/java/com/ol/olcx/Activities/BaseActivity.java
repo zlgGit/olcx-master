@@ -2,6 +2,7 @@ package com.ol.olcx.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -24,8 +25,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
         initView();
-        initViews();
-        mContainer.addView(setBaseContentView());
+
     }
 
     private void initView() {
@@ -41,13 +41,17 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         mImgRight.setOnClickListener(this);
         mImgLeft.setOnClickListener(this);
         mTitle.setText(initTitle());
+
+
     }
 
     protected abstract void initViews();
 
     protected abstract String initTitle();
 
-    protected abstract View setBaseContentView();
+    protected  void setBaseContentView(int id){
+        mContainer.addView(LayoutInflater.from(this).inflate(id,null));
+    }
 
 
     protected void setRightImage(int drawableId) {

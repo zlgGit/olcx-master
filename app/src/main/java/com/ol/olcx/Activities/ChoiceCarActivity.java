@@ -38,6 +38,7 @@ public class ChoiceCarActivity extends BaseActivity implements ChoiceCarView<Lis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setBaseContentView(R.layout.activity_choice_car);
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
@@ -65,10 +66,7 @@ public class ChoiceCarActivity extends BaseActivity implements ChoiceCarView<Lis
         return "车辆信息";
     }
 
-    @Override
-    protected View setBaseContentView() {
-        return LayoutInflater.from(this).inflate(R.layout.activity_choice_car, null);
-    }
+
 
 
 

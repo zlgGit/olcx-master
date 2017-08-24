@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+
+tools:context="com.ol.olcx.Activities.WalletActivity">
+
+<ImageView
+    android:id="@+id/img"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="-300dp"
+    android:scaleType="fitXY"
+    android:src="@drawable/image_weibo_home_2"
+    />
+
+<com.scwang.smartrefresh.layout.SmartRefreshLayout
+    android:id="@+id/fresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:srlEnablePreviewInEditMode="false"
+    >
+
+    <com.ol.olcx.headers.CcNoneHeader
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.ol.olcx.headers.CcNoneHeader>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/translucent"
+            android:fitsSystemWindows="true"
+            >
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@color/translucent"
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom">
+
+                </RelativeLayout>
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/colorWhile"
+                    app:layout_collapseMode="pin"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="钱包"
+
+                            />
+                    </RelativeLayout>
+                </android.support.v7.widget.Toolbar>
+            </android.support.design.widget.CollapsingToolbarLayout>
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhile"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/wallet_item1"
+                    style="@style/WALLET_ITEM"
+                    >
+
+                    <ImageView
+                        style="@style/WALLET_IMG"
+                        android:src="@drawable/wallet_rc"
+
+                        />
+
+                    <TextView
+                        style="@style/WALLET_TXT"
+                        android:text="充值"
+                        />
+
+                    <ImageView
+                        style="@style/WALLET_IMG"
+                        android:src="@drawable/into"
+                        />
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/black9"
+                    />
+                <LinearLayout
+                    android:id="@+id/wallet_item2"
+                    style="@style/WALLET_ITEM"
+                    >
+
+                    <ImageView
+                        style="@style/WALLET_IMG"
+                        android:src="@drawable/walllet_tx"
+                        />
+
+                    <TextView
+                        style="@style/WALLET_TXT"
+                        android:text="提现"
+                        />
+
+                    <ImageView
+                        style="@style/WALLET_IMG"
+                        android:src="@drawable/into"
+                        />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/black9"
+                    />
+                <LinearLayout
+                    android:id="@+id/wallet_item3"
+                    style="@style/WALLET_ITEM"
+                    >
+
+                    <ImageView
+                        style="@style/WALLET_IMG"
+                        android:src="@drawable/wallet_yhj"
+                        />
+
+                    <TextView
+                        style="@style/WALLET_TXT"
+                        android:text="优惠劵"
+                        />
+
+                    <ImageView
+                        style="@style/WALLET_IMG"
+                        android:src="@drawable/into"
+                        />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/black9"
+                    />
+                <LinearLayout
+                    android:id="@+id/wallet_item4"
+                    style="@style/WALLET_ITEM"
+                    >
+
+                    <ImageView
+                        style="@style/WALLET_IMG"
+                        android:src="@drawable/wallet_fp"
+                        />
+
+                    <TextView
+                        style="@style/WALLET_TXT"
+                        android:text="发票"
+                        />
+
+                    <ImageView
+                        style="@style/WALLET_IMG"
+                        android:src="@drawable/into"
+                        />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/black9"
+                    />
+                <LinearLayout
+                    android:id="@+id/wallet_item5"
+                    style="@style/WALLET_ITEM"
+                    >
+
+                    <ImageView
+                        style="@style/WALLET_IMG"
+                        android:src="@drawable/wallet_xg"
+                        />
+
+                    <TextView
+                        style="@style/WALLET_TXT"
+                        android:text="修改支付密码"
+                        />
+
+                    <ImageView
+                        style="@style/WALLET_IMG"
+                        android:src="@drawable/into"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </android.support.design.widget.CoordinatorLayout>
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
+</RelativeLayout>

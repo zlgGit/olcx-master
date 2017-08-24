@@ -22,5 +22,26 @@
         <item name="android:windowExitAnimation">@null</item>
         <item name="android:activityCloseExitAnimation">@null</item>
     </style>
+    <style name="WALLET_IMG">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
 
+    <style name="WALLET_TXT">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorGray9</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginRight">5dp</item>
+    </style>
+
+    <style name="WALLET_ITEM">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:padding">10dp</item>
+    </style>
 </resources>

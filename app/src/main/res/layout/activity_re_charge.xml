@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.ol.olcx.Activities.ReChargeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhile"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        android:gravity="center_vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginRight="30dp"
+            android:text="金额/元 :"
+            android:textColor="@color/colorGray9"
+            android:textSize="@dimen/ts_18"
+            />
+
+        <EditText
+            style="?android:attr/textViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="请输入充值金额"
+            android:textColor="@color/gray10"
+            android:textSize="@dimen/ts_22"
+            android:textCursorDrawable="@null"
+            android:inputType="number"
+            />
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/close2"
+            android:layout_marginRight="10dp"
+            />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+    </View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorWhile"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="支付方式"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/gray2"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="5dp"
+
+            >
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/alipay"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="支付宝"
+                />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                />
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/gray2"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            >
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/wxpay"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="微信"
+                />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+    </View>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Red"
+        android:text="确定"
+        android:textSize="@dimen/ts_20"
+        android:textColor="@color/colorWhile"
+        />
+</LinearLayout>

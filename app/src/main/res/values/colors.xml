@@ -33,4 +33,6 @@
     <color name="gray10">#807f7f</color>
     <color name="gray12">#605f5f</color>
     <color name="translucent1">#1000</color>
+    <color name="walletBlue">#0165b1</color>
+    <color name="Red">#cf2020</color>
 </resources>

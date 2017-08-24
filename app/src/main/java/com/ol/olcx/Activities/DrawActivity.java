@@ -19,9 +19,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amap.api.maps.model.LatLng;
+import com.amap.api.maps.model.Poi;
+import com.amap.api.navi.AmapNaviPage;
+import com.amap.api.navi.AmapNaviParams;
+import com.amap.api.navi.AmapNaviType;
+import com.amap.api.navi.INaviInfoCallback;
+import com.amap.api.navi.model.AMapNaviLocation;
 import com.ol.olcx.R;
 
 import com.ol.olcx.fragments.MapTFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DrawActivity extends AppCompatActivity {
 
@@ -41,6 +51,8 @@ public class DrawActivity extends AppCompatActivity {
         setContentView(R.layout.activity_draw);
         initView();
         permissin();
+
+//        startActivity(new Intent(this,WalkRouteActivity.class));
 
     }
 

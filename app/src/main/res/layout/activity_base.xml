@@ -15,10 +15,10 @@
 
         <ImageView
             android:id="@+id/base_image_left"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
             android:src="@drawable/back"
-            android:layout_alignTop="@+id/base_txt_left"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"/>
 
@@ -43,7 +43,7 @@
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:text="题目"
                 android:textColor="@color/blacke"
-                android:textSize="@dimen/ts_16"
+                android:textSize="@dimen/ts_20"
 
                 />
 
@@ -68,7 +68,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="@color/colorGray9"
+        android:background="@color/gray4"
         />
 
     <FrameLayout

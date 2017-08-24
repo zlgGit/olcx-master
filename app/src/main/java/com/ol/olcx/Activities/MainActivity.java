@@ -16,6 +16,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setBaseContentView(R.layout.activity_main);
     }
 
     @Override
@@ -28,10 +29,6 @@ public class MainActivity extends BaseActivity {
         return null;
     }
 
-    @Override
-    protected View setBaseContentView() {
-        return LayoutInflater.from(this).inflate(R.layout.activity_main,null);
-    }
 
     @Override
     protected void imageLeftClick() {

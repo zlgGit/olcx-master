@@ -10,5 +10,10 @@
     <string name="location_start_position">当前位置</string>
     <string name="station_choice_car">选车</string>
     <string name="station_to_where">你要去那儿</string>
-    <string name="station_replace">换个站点</string>
+    <string name="station_replace">确定预约</string>
+    <string name="wallet_detail">换个站点</string>
+
+
+    <string name="no_result">对不起，没有搜索到相关数据！</string>
+
 </resources>

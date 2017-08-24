@@ -82,8 +82,8 @@ import java.util.ArrayList;
 //
 //        MapAdapter mapAdapter=new MapAdapter(getActivity());
 //        mViewPager.setAdapter(mapAdapter);
-        mTabLayout.addTab(mTabLayout.newTab().setText("网约车"));
         mTabLayout.addTab(mTabLayout.newTab().setText("分时租赁"));
+        mTabLayout.addTab(mTabLayout.newTab().setText("网约车"));
         mTabLayout.addOnTabSelectedListener(this);
     }
 
@@ -110,9 +110,9 @@ import java.util.ArrayList;
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
         if (tab.getText().equals("网约车")) {
-            mContainer.setCurrentItem(0);
-        }else {
             mContainer.setCurrentItem(1,true);
+        }else {
+            mContainer.setCurrentItem(0,true);
         }
     }
 

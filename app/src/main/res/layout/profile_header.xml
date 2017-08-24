@@ -3,8 +3,9 @@
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="160dp"
+              android:layout_height="260dp"
               android:gravity="bottom|center"
+              android:background="@color/colorWhile"
 
     >
 

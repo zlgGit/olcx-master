@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ol.olcx.Activities.ProfileInfoActivity">
+
+    <ImageView
+        android:id="@+id/bg_img"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/timg"
+
+        />
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/profile_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srlEnablePureScrollMode="true"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/translucent"
+            android:orientation="vertical">
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/profile_appbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/translucent"
+                android:fitsSystemWindows="true"
+                app:elevation="0dp"
+
+                >
+
+                <android.support.design.widget.CollapsingToolbarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        app:layout_scrollFlags="scroll"
+                        >
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="40dp"
+                            android:src="@mipmap/lufei"
+                            app:civ_border_color="@color/colorWhile"
+                            app:civ_border_width="1dp"
+                            />
+                    </RelativeLayout>
+                </android.support.design.widget.CollapsingToolbarLayout>
+
+
+            </android.support.design.widget.AppBarLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/colorWhile"
+                >
+                <LinearLayout
+                    android:id="@+id/profile_item0"
+                    style="@style/WALLET_ITEM"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="昵称"
+                        android:textColor="@color/blackd"
+                        android:textSize="@dimen/ts_16"
+                        />
+
+                    <TextView
+                        style="@style/WALLET_TXT"
+                        android:text="开封有个包青天"
+                        android:gravity="right"
+                        />
+
+                    <ImageView
+                        style="@style/WALLET_IMG"
+                        android:src="@drawable/into"
+                        />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/gray2"
+                    />
+                <LinearLayout
+                    android:id="@+id/profile_item1"
+                    style="@style/WALLET_ITEM"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="手机号"
+                        android:textColor="@color/blackf"
+                        android:textSize="@dimen/ts_16"
+                        />
+
+                    <TextView
+                        style="@style/WALLET_TXT"
+                        android:text="1888888888"
+                        android:gravity="right"
+                        />
+
+                    <ImageView
+                        style="@style/WALLET_IMG"
+                        android:src="@drawable/into"
+                        />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/gray2"
+                    />
+                <LinearLayout
+                    android:id="@+id/profile_item3"
+                    style="@style/WALLET_ITEM"
+                    >
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="爱好"
+                        android:textColor="@color/blackf"
+                        android:textSize="@dimen/ts_16"/>
+
+                    <TextView
+                        style="@style/WALLET_TXT"
+                        android:text="睡觉"
+                        android:gravity="right"
+                        />
+
+                    <ImageView
+                        style="@style/WALLET_IMG"
+                        android:src="@drawable/into"
+                        />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/gray2"
+                    />
+                <LinearLayout
+                    android:id="@+id/profile_item4"
+                    style="@style/WALLET_ITEM"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="认证状态"
+                        android:textColor="@color/blackf"
+                        android:textSize="@dimen/ts_16"
+                        />
+
+                    <TextView
+                        style="@style/WALLET_TXT"
+                        android:text="已认证"
+                        android:gravity="right"
+                        android:textColor="@color/Red"
+                        />
+
+                    <ImageView
+                        style="@style/WALLET_IMG"
+                        android:src="@drawable/into"
+                        />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/gray2"
+                    />
+                <LinearLayout
+                    android:id="@+id/profile_item5"
+                    style="@style/WALLET_ITEM"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="修改密码"
+                        android:textColor="@color/blackf"
+                        android:textSize="@dimen/ts_16"
+                        />
+
+                    <TextView
+                        style="@style/WALLET_TXT"
+                        android:text=""
+                        android:gravity="right"
+                        />
+
+                    <ImageView
+                        style="@style/WALLET_IMG"
+                        android:src="@drawable/into"
+                        />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/gray2"
+                    />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/profile_toobar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+
+        <ImageView
+            android:id="@+id/profile_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/back"
+            />
+
+    </android.support.v7.widget.Toolbar>
+
+</RelativeLayout>
